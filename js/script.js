@@ -1,6 +1,5 @@
-let isScrolling = false; // Controla si una transición está en curso
+let isScrolling = false;
 
-// Función para realizar el scroll suave
 function smoothScrollTo(target) {
     if (isScrolling) return;
 
@@ -20,18 +19,17 @@ function smoothScrollTo(target) {
         if (timeElapsed < duration) {
             requestAnimationFrame(animation);
         } else {
-            isScrolling = false; // Transición completada
+            isScrolling = false;
         }
     }
 
     requestAnimationFrame(animation);
 }
 
-// Resalta el botón o punto correspondiente según la sección visible
 function highlightActiveNavigation() {
     const sections = document.querySelectorAll('section');
-    const buttons = document.querySelectorAll('.nav-link'); // Asegúrate de que los botones tengan esta clase
-    const dots = document.querySelectorAll('.dot'); // Puntos de navegación
+    const buttons = document.querySelectorAll('.nav-link');
+    const dots = document.querySelectorAll('.dot');
 
     sections.forEach((section, index) => {
         const rect = section.getBoundingClientRect();
@@ -39,24 +37,21 @@ function highlightActiveNavigation() {
         const sectionBottom = rect.bottom;
 
         if (sectionTop <= window.innerHeight * 0.6 && sectionBottom >= window.innerHeight * 0.4) {
-            // Resalta el botón correspondiente
             buttons.forEach(button => {
-                button.classList.remove('active'); // Elimina la clase 'active' de todos los botones
+                button.classList.remove('active');
             });
-            buttons[index].classList.add('active'); // Agrega la clase 'active' al botón correspondiente
+            buttons[index].classList.add('active');
 
-            // Resalta el punto de navegación correspondiente
             dots.forEach(dot => {
-                dot.classList.remove('active'); // Elimina la clase 'active' de todos los puntos
+                dot.classList.remove('active');
             });
-            dots[index].classList.add('active'); // Agrega la clase 'active' al punto correspondiente
+            dots[index].classList.add('active');
         }
     });
 }
 
-// Función de scroll con la rueda del mouse
 function scrollToSection(event) {
-    event.preventDefault(); // Evita el scroll predeterminado
+    event.preventDefault();
 
     const sections = document.querySelectorAll('section');
     let currentSection = null;
@@ -82,19 +77,15 @@ function scrollToSection(event) {
 
         if (targetSection) {
             smoothScrollTo(targetSection.offsetTop);
-            highlightActiveNavigation(); // Actualiza los botones y puntos resaltados
+            highlightActiveNavigation();
         }
     }
 }
 
-// Bloquea el desplazamiento con el touchpad/rueda del mouse
 window.addEventListener('wheel', scrollToSection, { passive: false });
 
-// Bloquea el desplazamiento táctil en móviles
 window.addEventListener('touchmove', (event) => event.preventDefault(), { passive: false });
 
-// Llama a la función para resaltar el botón y los puntos al hacer scroll
 window.addEventListener('scroll', highlightActiveNavigation);
 
-// Llama a la función para resaltar el botón y los puntos cuando la página carga
 document.addEventListener('DOMContentLoaded', highlightActiveNavigation);

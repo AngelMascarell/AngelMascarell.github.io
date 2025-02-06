@@ -88,6 +88,10 @@
     animation: fadeInUp 0.8s ease-in-out forwards;
 }
 
+.fade-in.visible {
+    opacity: 1; /* Vuelve visible */
+}
+
 .delay-1 {
     animation-delay: 0.3s;
 }
@@ -283,8 +287,8 @@
 .contact-bg {
     background-color: transparent;
     width: 100%;
-    min-height: 100vh; /* Para que sea más alto */
-    padding: 80px 0; /* Aumenta el padding para más espacio */
+    min-height: 100vh;
+    padding: 80px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -308,13 +312,13 @@
     font-size: 30px;
     text-decoration: none;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease; /* Añadimos la transición para el tamaño */
+    transition: color 0.3s ease, transform 0.3s ease;
     margin: 10px 0;
 }
 
 .navigation-dots a.active {
-    color: #f7c20b; /* Color amarillo cuando el punto está activo */
-    transform: scale(2); /* Aumenta el tamaño del punto activo */
+    color: #f7c20b;
+    transform: scale(2);
 }
 
 .dot {
@@ -365,20 +369,19 @@ form {
 }
 
 .navbar-nav .nav-link {
-    font-size: 18px; /* Aumenta el tamaño de los enlaces */
-    color: #ffffff !important; /* Mantiene el texto blanco */
-    font-weight: 500; /* Hace que el texto sea más grueso */
+    font-size: 18px;
+    color: #ffffff !important;
+    font-weight: 500;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #4dabf7 !important; /* Azul claro al pasar el mouse */
-    transform: scale(1.1); /* Hace un pequeño aumento */
+    color: #4dabf7 !important;
+    transform: scale(1.1);
 }
 
-/* Resaltar el enlace activo */
 .navbar-nav .nav-link.active {
-    color: #4dabf7 !important; /* Azul claro para el enlace activo */
+    color: #4dabf7 !important;
     font-weight: bold;
 }
 
@@ -387,28 +390,22 @@ form {
 }
 
 .navbar-nav .nav-item {
-    margin-right: 15px; /* Separación entre cada enlace */
+    margin-right: 15px;
 }
 
-/* Elimina el margen del último elemento para evitar espacio extra */
 .navbar-nav .nav-item:last-child {
     margin-right: 0;
 }
 
-/* Hover para el enlace de disponibilidad */
-/* Hover para el enlace de disponibilidad */
 .alert-info {
-    transition: background-color 0.3s, color 0.3s; /* Agregar transición */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Estilo del hover para la caja completa */
 .alert-info:hover {
-    background-color: #007bff !important; /* Fondo azul en hover */
-    color: white !important; /* Texto blanco */
-    cursor: pointer; /* Aparece el cursor en forma de mano */
+    background-color: #007bff !important;
+    color: white !important;
+    cursor: pointer;
 }
-
-
 
 @media (max-width: 768px) {
     .tech-icons {
